@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <string name="hello">2DO-DTNTASK</string>
-    <string name="app_name">2D0-DTN</string>
-    <string name="check_button">Done</string>
-    <string name="spinner_done">Done</string>
-    <string name="spinner_inwork">Inwork</string>
-    <string name="spinner_open">Open</string>
-    <string name="spinner_delete">Delete</string>
+    
+    <string name="app_name">ToDo</string>
+    <string name="nickname">Nickname</string>
+    <string name="preferences">Preferences</string>
 
 </resources>

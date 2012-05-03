@@ -1,22 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="dtn.taskpackage"
+    package="de.tubs.ibr.dtn.todo"
     android:versionCode="1"
     android:versionName="1.0" >
 
     <uses-sdk android:minSdkVersion="10" />
+    
+    <uses-permission android:name="android.permission.VIBRATE"/>
+	<uses-permission android:name="de.tubs.ibr.dtn.permission.RECEIVE"/>
 
     <application
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/todo"
         android:label="@string/app_name" >
-        <activity
-            android:name=".TODODTNActivity"
-            android:label="@string/app_name" >
+        
+        <activity 
+            android:icon="@drawable/todo"
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.NoTitleBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <intent-filter >
+        		<action android:name="de.tubs.ibr.dtn.intent.DTNAPP" />
+        		<category android:name="android.intent.category.DEFAULT" />
+    		</intent-filter>
+    		
+            <receiver android:enabled="true" android:name=".service.EventReceiver">
+    			<intent-filter>
+        			<action android:name="de.tubs.ibr.dtn.intent.STATE" />
+        			<category android:name="android.intent.category.DEFAULT" />
+    			</intent-filter>
+    			<intent-filter>
+        			<action android:name="de.tubs.ibr.dtn.intent.REGISTRATION" />
+        			<category android:name="de.tubs.ibr.dtn.todo" />
+    			</intent-filter>
+    			<intent-filter>
+       				 <action android:name="de.tubs.ibr.dtn.intent.RECEIVE" />
+        			 <category android:name="de.tubs.ibr.dtn.todo" />
+    			</intent-filter>
+			</receiver>
         </activity>
     </application>
 
